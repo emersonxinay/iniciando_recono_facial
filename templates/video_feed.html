@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Feed</title>
+</head>
+<body>
+    <img id="video" src="" width="640" height="480">
+    <script>
+        var img = document.getElementById('video');
+        var eventSource = new EventSource('/video');
+
+        eventSource.onmessage = function(event) {
+            img.src = event.data;
+        };
+    </script>
+</body>
+</html>
